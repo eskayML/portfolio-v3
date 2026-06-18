@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samuel Kalu - AI / ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    background: #fafafa;
+    color: #111;
+    line-height: 1.5;
+  }
+  .container { max-width: 680px; margin: 0 auto; padding: 80px 24px; }
+
+  h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
+  .title { font-size: 18px; color: #666; margin-top: 4px; font-style: italic; }
+  .links { margin-top: 14px; display: flex; gap: 24px; font-size: 16px; }
+  .links a { color: #2563eb; text-decoration: none; font-weight: 500; }
+  .links a:hover { text-decoration: underline; }
+
+  .about { margin-top: 52px; font-size: 17px; color: #444; max-width: 580px; line-height: 1.65; }
+
+  .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-top: 64px; margin-bottom: 28px; }
+
+  .project { margin-bottom: 52px; }
+  .project h3 { font-size: 22px; font-weight: 600; }
+  .project .tag { display: inline-block; font-size: 13px; color: #2563eb; background: #eef2ff; padding: 2px 12px; border-radius: 4px; margin-top: 6px; font-style: italic; }
+  .project p { font-size: 17px; color: #444; margin-top: 10px; line-height: 1.65; }
+  .project .stack { font-size: 14px; color: #888; margin-top: 10px; font-style: italic; }
+  .project .link { display: inline-block; margin-top: 10px; font-size: 16px; color: #2563eb; text-decoration: none; font-weight: 500; }
+  .project .link:hover { text-decoration: underline; }
+
+  .updates { margin-top: 48px; }
+  .update { margin-bottom: 18px; padding-left: 14px; border-left: 2px solid #e5e5e5; }
+  .update .date { font-size: 13px; color: #999; font-weight: 600; }
+  .update p { font-size: 16px; color: #444; margin-top: 2px; }
+  .update a { color: #2563eb; text-decoration: none; }
+  .update a:hover { text-decoration: underline; }
+
+  hr { border: none; border-top: 1px solid #e5e5e5; margin: 52px 0; }
+  .footer { font-size: 14px; color: #999; font-style: italic; }
+
+  @media (max-width: 600px) {
+    .container { padding: 40px 20px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Samuel Kalu</h1>
+  <div class="title">AI / ML Engineer</div>
+  <div class="links">
+    <a href="https://github.com/eskayML">GitHub</a>
+    <a href="https://linkedin.com/in/eskayml">LinkedIn</a>
+    <a href="mailto:kalusam619@gmail.com">Email</a>
+  </div>
+
+  <div class="about">
+    Building AI systems for document intelligence and knowledge retrieval.
+    Focused on architectures that combine LLMs with structured knowledge.
+  </div>
+
+  <div class="section-title">Projects</div>
+
+  <div class="project">
+    <h3>Du-RAG</h3>
+    <div class="tag">Open Source</div>
+    <p>
+      Graph-enabled RAG system with entity extraction, deduplication, and multi-source
+      agentic routing. Designed a memory consolidation pipeline that extracts entities
+      and relationships from conversations and stores them as a dynamic knowledge graph
+      for persistent context.
+    </p>
+    <div class="stack">Python, Neo4j, LangChain, GraphRAG, Vector Stores</div>
+    <a class="link" href="https://github.com/eskayML/durag">GitHub &rarr;</a>
+  </div>
+
+  <div class="project">
+    <h3>Sourcemap Africa</h3>
+    <div class="tag">Active</div>
+    <p>
+      AI-powered document verification platform for African investigative journalism.
+      Multi-model analysis for tamper detection, origin tracing, and archive search.
+      Built for newsrooms that need to verify documents fast.
+    </p>
+    <div class="stack">Python, AI Agents, Multi-Model Pipeline, Vector Embeddings</div>
+    <a class="link" href="https://sourcemap.africa">sourcemap.africa &rarr;</a>
+  </div>
+
+  <div class="section-title">Updates</div>
+  <div class="updates">
+    <div class="update">
+      <div class="date">Jun 2026</div>
+      <p>Sourcemap Africa launched - AI document verification for African newsrooms.</p>
+    </div>
+    <div class="update">
+      <div class="date">Jun 2026</div>
+      <p>Du-RAG v2.1: memory consolidation with dynamic entity relationship extraction.</p>
+    </div>
+    <div class="update">
+      <div class="date">Aug 2025</div>
+      <p>GSoC '25: Built a <a href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d">Communication Analysis Tool</a> for human-AI interaction in driving simulator experiments - speaker identification and transcription modules for safety-critical analysis of multi-modal driving data.</p>
+    </div>
+    <div class="update">
+      <div class="date">Apr 2025</div>
+      <p>Won Nosana Web3 Hackathon 1.0 - deployed complex containers to Nosana's decentralized compute network.</p>
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">kalusam619@gmail.com &middot; Remote (GMT+1)</div>
+</div>
+</body>
+</html>
