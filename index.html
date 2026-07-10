@@ -4,150 +4,478 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samuel Kalu - AI / ML Engineer</title>
+
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,200" rel="stylesheet">
+<!-- EB Garamond -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<!-- Inter for UI elements -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a73e8'/%3E%3Ctext x='16' y='22' font-family='Inter, sans-serif' font-size='18' font-weight='600' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
-    background: #fafafa;
-    color: #111;
+    background: #f8f9fa;
+    color: #1f1f1f;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Material Elevation Tokens */
+  .elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
+  .elevation-2 { box-shadow: 0 3px 6px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04); }
+  .elevation-3 { box-shadow: 0 10px 24px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.04); }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 48px 0 40px;
+  }
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1f1f1f;
+  }
+  .hero .title {
+    font-size: 18px;
+    color: #5f6368;
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+  }
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .hero-links a:hover { color: #1557b0; }
+  .hero-links .material-symbols-outlined {
+    font-size: 18px;
+  }
+
+  /* ── About Card ── */
+  .about-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .about-card p {
+    font-size: 17px;
+    color: #3c4043;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  /* ── Section Header ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 56px 0 24px;
+  }
+  .section-header .material-symbols-outlined {
+    font-size: 22px;
+    color: #1a73e8;
+  }
+  .section-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5f6368;
+  }
+
+  /* ── Project Card ── */
+  .project-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+  .project-card:hover {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.04);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .project-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #e8f0fe;
+    color: #1a73e8;
+    overflow: hidden;
+  }
+  .project-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .project-icon .material-symbols-outlined {
+    font-size: 24px;
+  }
+  .project-info { flex: 1; min-width: 0; }
+  .project-info h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f1f1f;
+    line-height: 1.3;
+  }
+  .project-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1a73e8;
+    background: #e8f0fe;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  .project-stat .material-symbols-outlined {
+    font-size: 14px;
+  }
+
+  .project-description {
+    font-size: 17px;
+    color: #3c4043;
+    line-height: 1.65;
+    margin-top: 12px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: #1557b0; }
+  .project-link .material-symbols-outlined {
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  .project-link:hover .material-symbols-outlined {
+    transform: translateX(3px);
+  }
+
+  /* ── Color-coded icon backgrounds ── */
+  .icon-leadork { background: #e8f0fe; color: #1a73e8; }
+  .icon-sourcemap { background: #e6f4ea; color: #1e8e3e; }
+  .icon-durag { background: #fce8e6; color: #d93025; }
+  .icon-comm { background: #fef7e0; color: #f9ab00; }
+
+  /* ── Updates Timeline ── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #e8eaed;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #dadce0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-dot .material-symbols-outlined {
+    font-size: 16px;
+    color: #5f6368;
+  }
+  .timeline-content { flex: 1; min-width: 0; }
+  .timeline-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #80868b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .timeline-content p {
+    font-size: 16px;
+    color: #3c4043;
+    margin-top: 2px;
     line-height: 1.5;
   }
-  .container { max-width: 680px; margin: 0 auto; padding: 80px 24px; }
+  .timeline-content a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .timeline-content a:hover { text-decoration: underline; }
 
-  h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
-  .title { font-size: 18px; color: #666; margin-top: 4px; font-style: italic; }
-  .links { margin-top: 14px; display: flex; gap: 24px; font-size: 16px; }
-  .links a { color: #2563eb; text-decoration: none; font-weight: 500; }
-  .links a:hover { text-decoration: underline; }
+  /* ── Footer ── */
+  hr { border: none; border-top: 1px solid #e8eaed; margin: 56px 0 24px; }
+  .footer {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #80868b;
+  }
+  .footer a { color: #1a73e8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
 
-  .about { margin-top: 52px; font-size: 17px; color: #444; max-width: 580px; line-height: 1.65; }
-
-  .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-top: 64px; margin-bottom: 28px; }
-
-  .project { margin-bottom: 52px; }
-  .project h3 { font-size: 22px; font-weight: 600; }
-  .project .stat { display: inline-block; font-size: 13px; color: #2563eb; background: #eef2ff; padding: 2px 12px; border-radius: 4px; margin-top: 6px; font-weight: 500; }
-  .project p { font-size: 17px; color: #444; margin-top: 10px; line-height: 1.65; }
-  .project .link { display: inline-block; margin-top: 10px; font-size: 16px; color: #2563eb; text-decoration: none; font-weight: 500; }
-  .project .link:hover { text-decoration: underline; }
-
-  .updates { margin-top: 48px; }
-  .update { margin-bottom: 18px; padding-left: 14px; border-left: 2px solid #e5e5e5; }
-  .update .date { font-size: 13px; color: #999; font-weight: 600; }
-  .update p { font-size: 16px; color: #444; margin-top: 2px; }
-  .update a { color: #2563eb; text-decoration: none; }
-  .update a:hover { text-decoration: underline; }
-
-  hr { border: none; border-top: 1px solid #e5e5e5; margin: 52px 0; }
-  .footer { font-size: 14px; color: #999; font-style: italic; }
-
+  /* ── Responsive ── */
   @media (max-width: 600px) {
-    .container { padding: 40px 20px; }
-    h1 { font-size: 28px; }
+    .container { padding: 32px 16px 48px; }
+    .hero { padding: 32px 0 24px; }
+    .hero h1 { font-size: 32px; }
+    .hero-links { gap: 20px; flex-wrap: wrap; }
+    .about-card { padding: 20px; }
+    .project-card { padding: 20px; }
+    .project-header { gap: 12px; }
+    .project-icon { width: 40px; height: 40px; }
+    .project-icon .material-symbols-outlined { font-size: 20px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Samuel Kalu</h1>
-  <div class="title">AI / ML Engineer</div>
-  <div class="links">
-    <a href="https://github.com/eskayML" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="https://linkedin.com/in/eskayml" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="mailto:kalusam619@gmail.com">Email</a>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <h1>Samuel Kalu</h1>
+    <div class="title">AI / ML Engineer</div>
+    <div class="hero-links">
+      <a href="https://github.com/eskayML" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined">code</span> GitHub
+      </a>
+      <a href="https://linkedin.com/in/eskayml" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined">badge</span> LinkedIn
+      </a>
+      <a href="mailto:kalusam619@gmail.com">
+        <span class="material-symbols-outlined">mail</span> Email
+      </a>
+    </div>
   </div>
 
-  <div class="about">
-    I build products that help people work with information at scale.
-    From B2B prospecting platforms used by hundreds daily to document
-    verification tools deployed across African newsrooms.
-  </div>
-
-  <div class="section-title">Projects</div>
-
-  <div class="project">
-    <h3>Leadork</h3>
-    <div class="stat">100+ daily active users</div>
+  <!-- ── About ── -->
+  <div class="about-card">
     <p>
+      I build products that help people work with information at scale.
+      From B2B prospecting platforms used by hundreds daily to document
+      verification tools deployed across African newsrooms.
+    </p>
+  </div>
+
+  <!-- ── Projects ── -->
+  <div class="section-header">
+    <span class="material-symbols-outlined">folder_open</span>
+    <h2>Projects</h2>
+  </div>
+
+  <!-- Leadork -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-icon icon-leadork" id="icon-leadork">
+        <span class="material-symbols-outlined">travel_explore</span>
+      </div>
+      <div class="project-info">
+        <h3>Leadork</h3>
+        <div class="project-stat">
+          <span class="material-symbols-outlined">trending_up</span> 100+ daily active users
+        </div>
+      </div>
+    </div>
+    <div class="project-description">
       A B2B lead scraping and prospecting platform. Input any location
       and business type anywhere in the world, and Leadork automatically
       finds companies, extracts decision-maker emails, and delivers
       ready-to-use sales sheets. Used daily by sales teams and agencies
       across multiple markets.
-    </p>
-    <a class="link" href="https://leadork.com" target="_blank" rel="noopener noreferrer">leadork.com &rarr;</a>
+    </div>
+    <a class="project-link" href="https://leadork.com" target="_blank" rel="noopener noreferrer">
+      leadork.com <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="project">
-    <h3>Sourcemap Africa</h3>
-    <div class="stat">40+ newsrooms across Nigeria</div>
-    <p>
+  <!-- Sourcemap Africa -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-icon icon-sourcemap" id="icon-sourcemap">
+        <span class="material-symbols-outlined">verified</span>
+      </div>
+      <div class="project-info">
+        <h3>Sourcemap Africa</h3>
+        <div class="project-stat">
+          <span class="material-symbols-outlined">groups</span> 40+ newsrooms across Nigeria
+        </div>
+      </div>
+    </div>
+    <div class="project-description">
       AI-powered document verification engine for investigative journalism.
       Upload a document and get a forensic analysis report in minutes —
       tamper detection, metadata tracing, archive cross-referencing, and
       provenance tracking. Built to give African newsrooms the tools to
       verify documents and publish with confidence.
-    </p>
-    <a class="link" href="https://sourcemap.africa" target="_blank" rel="noopener noreferrer">sourcemap.africa &rarr;</a>
+    </div>
+    <a class="project-link" href="https://sourcemap.africa" target="_blank" rel="noopener noreferrer">
+      sourcemap.africa <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="project">
-    <h3>Du-RAG</h3>
-    <div class="stat">Open Source</div>
-    <p>
+  <!-- Du-RAG -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-icon icon-durag" id="icon-durag">
+        <span class="material-symbols-outlined">memory</span>
+      </div>
+      <div class="project-info">
+        <h3>Du-RAG</h3>
+        <div class="project-stat">
+          <span class="material-symbols-outlined">code</span> Open Source
+        </div>
+      </div>
+    </div>
+    <div class="project-description">
       A graph-enabled RAG system that gives LLMs persistent memory.
       Extracts entities and relationships from conversations and stores
       them as a dynamic knowledge graph, enabling long-term context
       without context window limits. Designed for applications that
       need to remember what was said.
-    </p>
-    <a class="link" href="https://github.com/eskayML/durag" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+    </div>
+    <a class="project-link" href="https://github.com/eskayML/durag" target="_blank" rel="noopener noreferrer">
+      GitHub <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="project">
-    <h3>Communication Analysis Tool</h3>
-    <div class="stat">GSoC</div>
-    <p>
+  <!-- Communication Analysis Tool -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-icon icon-comm" id="icon-comm">
+        <span class="material-symbols-outlined">graphic_eq</span>
+      </div>
+      <div class="project-info">
+        <h3>Communication Analysis Tool</h3>
+        <div class="project-stat">
+          <span class="material-symbols-outlined">school</span> GSoC
+        </div>
+      </div>
+    </div>
+    <div class="project-description">
       A tool that processes and analyzes audiovisual communication data
       from driving simulator experiments. Answers two core questions:
       "Who spoke when?" and "What was said?" — using speaker diarization
       and transcription. Provides visualizations for speaker timelines,
-      sentiment distribution, and interaction mapping. Built for
-      safety-critical human-AI interaction research.
-    </p>
-    <a class="link" href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">Read More &rarr;</a>
+      sentiment distribution, and interaction mapping.
+    </div>
+    <a class="project-link" href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">
+      Read More <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="section-title">Updates</div>
-  <div class="updates">
-    <div class="update">
-      <div class="date">Jul 2026</div>
-      <p>Leadork crosses 100 daily active users across US and global markets.</p>
+  <!-- ── Updates ── -->
+  <div class="section-header">
+    <span class="material-symbols-outlined">timeline</span>
+    <h2>Updates</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"><span class="material-symbols-outlined">star</span></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Jul 2026</div>
+        <p>Leadork crosses 100 daily active users across US and global markets.</p>
+      </div>
     </div>
-    <div class="update">
-      <div class="date">Jun 2026</div>
-      <p>Sourcemap Africa onboarded 40+ newsrooms across Nigeria.</p>
+    <div class="timeline-item">
+      <div class="timeline-dot"><span class="material-symbols-outlined">check</span></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Jun 2026</div>
+        <p>Sourcemap Africa onboarded 40+ newsrooms across Nigeria.</p>
+      </div>
     </div>
-    <div class="update">
-      <div class="date">Jun 2026</div>
-      <p>Du-RAG v2.1: memory consolidation with dynamic entity relationship extraction.</p>
+    <div class="timeline-item">
+      <div class="timeline-dot"><span class="material-symbols-outlined">update</span></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Jun 2026</div>
+        <p>Du-RAG v2.1: memory consolidation with dynamic entity relationship extraction.</p>
+      </div>
     </div>
-    <div class="update">
-      <div class="date">Aug 2025</div>
-      <p>Communication Analysis Tool for human-AI driving experiments. Speaker identification and transcription for safety-critical research.</p>
+    <div class="timeline-item">
+      <div class="timeline-dot"><span class="material-symbols-outlined">graphic_eq</span></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Aug 2025</div>
+        <p>Communication Analysis Tool for human-AI driving experiments. Speaker identification and transcription for safety-critical research.</p>
+      </div>
     </div>
-    <div class="update">
-      <div class="date">Apr 2025</div>
-      <p>Won Nosana Web3 Hackathon 1.0 — deployed complex containers to decentralized compute network.</p>
+    <div class="timeline-item">
+      <div class="timeline-dot"><span class="material-symbols-outlined">emoji_events</span></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Apr 2025</div>
+        <p>Won Nosana Web3 Hackathon 1.0 — deployed complex containers to decentralized compute network.</p>
+      </div>
     </div>
   </div>
 
   <hr>
-  <div class="footer">kalusam619@gmail.com &middot; Remote (GMT+1)</div>
+  <div class="footer">
+    kalusam619@gmail.com &middot; Remote (GMT+1)
+  </div>
 </div>
 </body>
 </html>
