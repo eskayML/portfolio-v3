@@ -126,6 +126,7 @@
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
     transition: box-shadow 0.2s;
+    cursor: pointer;
   }
   .project-card:hover {
     box-shadow: 0 10px 24px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.04);
@@ -510,7 +511,7 @@
   </div>
 
   <!-- Leadork -->
-  <div class="project-card hover-leadork">
+  <div class="project-card hover-leadork" data-href="https://leadork.com">
     <div class="project-header">
       <div class="project-icon icon-leadork">
         <img src="images/leadork-logo.jpg" alt="Leadork logo">
@@ -536,7 +537,7 @@
   </div>
 
   <!-- Sourcemap Africa -->
-  <div class="project-card hover-sourcemap">
+  <div class="project-card hover-sourcemap" data-href="https://sourcemap.africa">
     <div class="project-header">
       <div class="project-icon icon-sourcemap" style="width:auto;height:auto;padding:8px 16px;border-radius:8px">
         <img src="images/sourcemap-logo.jpg" alt="Sourcemap Africa logo" style="height:28px;width:auto">
@@ -562,7 +563,7 @@
   </div>
 
   <!-- Du-RAG -->
-  <div class="project-card hover-durag">
+  <div class="project-card hover-durag" data-href="https://github.com/eskayML/durag">
     <div class="project-header">
       <div class="project-icon icon-durag" style="width:auto;height:auto;padding:8px 16px;border-radius:8px">
         <img src="images/durag-logo.jpg" alt="Du-RAG logo" style="height:36px;width:auto">
@@ -588,7 +589,7 @@
   </div>
 
   <!-- Communication Analysis Tool -->
-  <div class="project-card hover-comm">
+  <div class="project-card hover-comm" data-href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d">
     <div class="project-header">
       <div class="project-icon icon-comm">
         <img src="images/comm-logo.jpg" alt="Communication Analysis Tool logo">
@@ -610,6 +611,16 @@
     <img src="images/comm-screenshot.jpg" alt="Communication Analysis Tool screenshot" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
     <a class="project-link" href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">
       Read More <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+
+  <!-- ── See more ── -->
+  <div style="text-align:center;margin-bottom:48px">
+    <a href="https://github.com/eskayML" target="_blank" rel="noopener noreferrer"
+       style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#1a73e8;text-decoration:none;padding:10px 28px;border:1.5px solid #1a73e8;border-radius:8px;transition:background 0.2s,color 0.2s"
+       onmouseover="this.style.background='#1a73e8';this.style.color='#fff'"
+       onmouseout="this.style.background='transparent';this.style.color='#1a73e8'">
+      See more projects <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
     </a>
   </div>
 
@@ -720,5 +731,15 @@
     kalusam619@gmail.com &middot; Remote (GMT+1)
   </div>
 </div>
+<script>
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't navigate if user clicked a link inside the card
+      if (e.target.closest('a')) return;
+      const href = this.getAttribute('data-href');
+      if (href) window.open(href, '_blank');
+    });
+  });
+</script>
 </body>
 </html>
