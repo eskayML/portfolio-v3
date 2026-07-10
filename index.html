@@ -273,6 +273,49 @@
   }
   .timeline-content a:hover { text-decoration: underline; }
 
+  /* ── Experience ── */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .experience-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 15px;
+    color: #3c4043;
+    line-height: 1.5;
+    padding: 4px 0;
+  }
+  .experience-row .company {
+    font-weight: 600;
+    color: #1f1f1f;
+    flex-shrink: 0;
+  }
+  .experience-row .role {
+    color: #5f6368;
+  }
+  .experience-row .dates {
+    margin-left: auto;
+    font-size: 13px;
+    color: #80868b;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  @media (max-width: 600px) {
+    .experience-row {
+      flex-wrap: wrap;
+      gap: 2px 8px;
+    }
+    .experience-row .dates {
+      margin-left: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+  }
+
   /* ── Footer ── */
   hr { border: none; border-top: 1px solid #e8eaed; margin: 56px 0 24px; }
   .footer {
@@ -476,6 +519,64 @@
     <a class="project-link" href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">
       Read More <span class="material-symbols-outlined">arrow_forward</span>
     </a>
+  </div>
+
+  <!-- ── Experience ── -->
+  <div class="section-header">
+    <span class="material-symbols-outlined">work_history</span>
+    <h2>Experience</h2>
+  </div>
+  <div class="experience-list">
+    <div class="experience-row">
+      <span class="company">Open Source Stories</span>
+      <span class="role">AI Engineer</span>
+      <span class="dates">Sep 2025 &ndash; May 2026</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">TRIP LAB</span>
+      <span class="role">OSS Contributor</span>
+      <span class="dates">May 2025 &ndash; Dec 2025</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Masakhane</span>
+      <span class="role">ML Research Fellow</span>
+      <span class="dates">Aug 2022 &ndash; Oct 2025</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Peepalytics AI</span>
+      <span class="role">Data and AI Engineer</span>
+      <span class="dates">Jun 2024 &ndash; May 2025</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Data Backed Africa</span>
+      <span class="role">Lead ML Engineer</span>
+      <span class="dates">Jun 2024 &ndash; Jan 2025</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Statistics Without Borders</span>
+      <span class="role">Data Scientist</span>
+      <span class="dates">Jan 2024 &ndash; Jul 2024</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Fairlearn</span>
+      <span class="role">OSS Contributor</span>
+      <span class="dates">May 2023 &ndash; Dec 2023</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Omdena</span>
+      <span class="role">Junior ML Engineer</span>
+      <span class="dates">Dec 2021 &ndash; Mar 2023</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">Data Backed Africa</span>
+      <span class="role">MLOps Engineer</span>
+      <span class="dates">May 2020 &ndash; Nov 2022</span>
+    </div>
+    <div class="experience-row">
+      <span class="company">InternCareer</span>
+      <span class="role">ML Intern</span>
+      <span class="dates">Nov 2021 &ndash; Mar 2022</span>
+    </div>
   </div>
 
   <!-- ── Updates ── -->
