@@ -30,9 +30,8 @@
 
   .project { margin-bottom: 52px; }
   .project h3 { font-size: 22px; font-weight: 600; }
-  .project .tag { display: inline-block; font-size: 13px; color: #2563eb; background: #eef2ff; padding: 2px 12px; border-radius: 4px; margin-top: 6px; font-style: italic; }
+  .project .stat { display: inline-block; font-size: 13px; color: #2563eb; background: #eef2ff; padding: 2px 12px; border-radius: 4px; margin-top: 6px; font-weight: 500; }
   .project p { font-size: 17px; color: #444; margin-top: 10px; line-height: 1.65; }
-  .project .stack { font-size: 14px; color: #888; margin-top: 10px; font-style: italic; }
   .project .link { display: inline-block; margin-top: 10px; font-size: 16px; color: #2563eb; text-decoration: none; font-weight: 500; }
   .project .link:hover { text-decoration: underline; }
 
@@ -63,42 +62,72 @@
   </div>
 
   <div class="about">
-    Building AI systems for document intelligence and knowledge retrieval.
-    Focused on architectures that combine LLMs with structured knowledge.
+    I build products and systems that help people work with
+    information at scale. From lead generation platforms used
+    by hundreds daily to document verification tools deployed
+    across African newsrooms.
   </div>
 
   <div class="section-title">Projects</div>
 
   <div class="project">
-    <h3>Du-RAG</h3>
-    <div class="tag">Open Source</div>
+    <h3>Leadork</h3>
+    <div class="stat">100+ daily active users</div>
     <p>
-      Graph-enabled RAG system with entity extraction, deduplication, and multi-source
-      agentic routing. Designed a memory consolidation pipeline that extracts entities
-      and relationships from conversations and stores them as a dynamic knowledge graph
-      for persistent context.
+      Lead generation platform that finds, enriches, and delivers
+      business leads across US markets. Automates Google Maps
+      discovery, email extraction from websites, and multi-channel
+      outreach — used daily by sales teams and agencies.
     </p>
-    <div class="stack">Python, Neo4j, LangChain, GraphRAG, Vector Stores</div>
-    <a class="link" href="https://github.com/eskayML/durag" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+    <a class="link" href="https://leadork.com" target="_blank" rel="noopener noreferrer">leadork.com &rarr;</a>
   </div>
 
   <div class="project">
     <h3>Sourcemap Africa</h3>
-    <div class="tag">Active</div>
+    <div class="stat">40+ newsrooms across Nigeria</div>
     <p>
-      AI-powered document verification platform for African investigative journalism.
-      Multi-model analysis for tamper detection, origin tracing, and archive search.
-      Built for newsrooms that need to verify documents fast.
+      AI-powered document verification platform for investigative
+      journalism. Detects tampering, traces document origin, and
+      makes verification fast for newsrooms that need to publish
+      with confidence.
     </p>
-    <div class="stack">Python, AI Agents, Multi-Model Pipeline, Vector Embeddings</div>
     <a class="link" href="https://sourcemap.africa" target="_blank" rel="noopener noreferrer">sourcemap.africa &rarr;</a>
+  </div>
+
+  <div class="project">
+    <h3>Du-RAG</h3>
+    <div class="stat">Open Source</div>
+    <p>
+      A graph-enabled RAG system that gives LLMs persistent memory
+      by extracting entities and relationships from conversations
+      and storing them as a dynamic knowledge graph. Designed for
+      applications that need long-term context without context
+      window limits.
+    </p>
+    <a class="link" href="https://github.com/eskayML/durag" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+  </div>
+
+  <div class="project">
+    <h3>Communication Analysis Tool</h3>
+    <div class="stat">GSoC</div>
+    <p>
+      Speaker identification and transcription system for human-AI
+      interaction in driving simulator experiments. Processes
+      multi-modal driving data to analyze safety-critical
+      communication between drivers and AI co-pilots.
+    </p>
+    <a class="link" href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">Read More &rarr;</a>
   </div>
 
   <div class="section-title">Updates</div>
   <div class="updates">
     <div class="update">
+      <div class="date">Jul 2026</div>
+      <p>Leadork crosses 100 daily active users across US markets.</p>
+    </div>
+    <div class="update">
       <div class="date">Jun 2026</div>
-      <p>Sourcemap Africa launched - AI document verification for African newsrooms.</p>
+      <p>Sourcemap Africa onboarded 40+ newsrooms across Nigeria.</p>
     </div>
     <div class="update">
       <div class="date">Jun 2026</div>
@@ -106,11 +135,11 @@
     </div>
     <div class="update">
       <div class="date">Aug 2025</div>
-      <p>GSoC '25: Built a <a href="https://eskayml.medium.com/gsoc-25-communication-analysis-tool-for-human-ai-interaction-driving-simulator-experiments-final-39c53d90672d" target="_blank" rel="noopener noreferrer">Communication Analysis Tool</a> for human-AI interaction in driving simulator experiments - speaker identification and transcription modules for safety-critical analysis of multi-modal driving data.</p>
+      <p>Communication Analysis Tool for human-AI driving experiments. Speaker identification and transcription for safety-critical analysis.</p>
     </div>
     <div class="update">
       <div class="date">Apr 2025</div>
-      <p>Won Nosana Web3 Hackathon 1.0 - deployed complex containers to Nosana's decentralized compute network.</p>
+      <p>Won Nosana Web3 Hackathon 1.0 — deployed complex containers to decentralized compute network.</p>
     </div>
   </div>
 
