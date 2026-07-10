@@ -131,6 +131,98 @@
     box-shadow: 0 10px 24px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.04);
   }
 
+  .project-card.hover-leadork:hover {
+    background: #1e8e3e;
+    color: white;
+  }
+  .project-card.hover-leadork:hover .project-description,
+  .project-card.hover-leadork:hover .project-info h3,
+  .project-card.hover-leadork:hover .project-stat,
+  .project-card.hover-leadork:hover .project-link,
+  .project-card.hover-leadork:hover .label-text {
+    color: white;
+  }
+  .project-card.hover-leadork:hover .project-stat {
+    background: rgba(255,255,255,0.2);
+  }
+  .project-card.hover-leadork:hover .project-link .material-symbols-outlined {
+    color: white;
+  }
+  .project-card.hover-leadork:hover .project-icon {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .project-card.hover-sourcemap:hover {
+    background: #1f1f1f;
+    color: white;
+  }
+  .project-card.hover-sourcemap:hover .project-description,
+  .project-card.hover-sourcemap:hover .project-info h3,
+  .project-card.hover-sourcemap:hover .project-stat,
+  .project-card.hover-sourcemap:hover .project-link,
+  .project-card.hover-sourcemap:hover .label-text {
+    color: white;
+  }
+  .project-card.hover-sourcemap:hover .project-stat {
+    background: rgba(255,255,255,0.15);
+  }
+  .project-card.hover-sourcemap:hover .project-link .material-symbols-outlined {
+    color: white;
+  }
+  .project-card.hover-sourcemap:hover .project-icon {
+    background: rgba(255,255,255,0.12);
+  }
+
+  .project-card.hover-durag:hover {
+    background: #7c3aed;
+    color: white;
+  }
+  .project-card.hover-durag:hover .project-description,
+  .project-card.hover-durag:hover .project-info h3,
+  .project-card.hover-durag:hover .project-stat,
+  .project-card.hover-durag:hover .project-link,
+  .project-card.hover-durag:hover .label-text {
+    color: white;
+  }
+  .project-card.hover-durag:hover .project-stat {
+    background: rgba(255,255,255,0.2);
+  }
+  .project-card.hover-durag:hover .project-link .material-symbols-outlined {
+    color: white;
+  }
+  .project-card.hover-durag:hover .project-icon {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .project-card.hover-comm:hover {
+    background: #f9ab00;
+    color: #1f1f1f;
+  }
+  .project-card.hover-comm:hover .project-description,
+  .project-card.hover-comm:hover .project-info h3,
+  .project-card.hover-comm:hover .project-stat,
+  .project-card.hover-comm:hover .project-link,
+  .project-card.hover-comm:hover .label-text {
+    color: #1f1f1f;
+  }
+  .project-card.hover-comm:hover .project-stat {
+    background: rgba(0,0,0,0.1);
+    color: #1f1f1f;
+  }
+  .project-card.hover-comm:hover .project-link .material-symbols-outlined {
+    color: #1f1f1f;
+  }
+  .project-card.hover-comm:hover .project-icon {
+    background: rgba(0,0,0,0.08);
+  }
+
+  .project-card.hover-leadork:hover .project-link,
+  .project-card.hover-sourcemap:hover .project-link,
+  .project-card.hover-durag:hover .project-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .project-header {
     display: flex;
     align-items: flex-start;
@@ -418,7 +510,7 @@
   </div>
 
   <!-- Leadork -->
-  <div class="project-card">
+  <div class="project-card hover-leadork">
     <div class="project-header">
       <div class="project-icon icon-leadork">
         <img src="images/leadork-logo.jpg" alt="Leadork logo">
@@ -444,7 +536,7 @@
   </div>
 
   <!-- Sourcemap Africa -->
-  <div class="project-card">
+  <div class="project-card hover-sourcemap">
     <div class="project-header">
       <div class="project-icon icon-sourcemap" style="width:auto;height:auto;padding:8px 16px;border-radius:8px">
         <img src="images/sourcemap-logo.jpg" alt="Sourcemap Africa logo" style="height:28px;width:auto">
@@ -470,7 +562,7 @@
   </div>
 
   <!-- Du-RAG -->
-  <div class="project-card">
+  <div class="project-card hover-durag">
     <div class="project-header">
       <div class="project-icon icon-durag" style="width:auto;height:auto;padding:8px 16px;border-radius:8px">
         <img src="images/durag-logo.jpg" alt="Du-RAG logo" style="height:36px;width:auto">
@@ -496,7 +588,7 @@
   </div>
 
   <!-- Communication Analysis Tool -->
-  <div class="project-card">
+  <div class="project-card hover-comm">
     <div class="project-header">
       <div class="project-icon icon-comm">
         <img src="images/comm-logo.jpg" alt="Communication Analysis Tool logo">
