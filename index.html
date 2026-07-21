@@ -223,115 +223,50 @@
     line-height: 1.5;
   }
 
-  /* ── Card-Stack Carousel ── */
-  .carousel {
-    position: relative;
-    margin-bottom: 40px;
-  }
-  .carousel-stack {
+  /* ── Card Fan Stack ── */
+  .card-fan {
     display: grid;
-    position: relative;
-    overflow: visible;
+    grid-template-columns: 1fr;
+    margin-bottom: 24px;
   }
-  .carousel-slide {
+  .card-fan > * {
     grid-row: 1;
     grid-column: 1;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.92) translateY(12px);
-    transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s 0.45s;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+    cursor: pointer;
+  }
+  .card-fan > *:nth-child(1) {
+    transform: rotate(-1.2deg) translateY(0) translateX(-4px);
     z-index: 1;
-    pointer-events: none;
   }
-  .carousel-slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1) translateY(0);
+  .card-fan > *:nth-child(2) {
+    transform: rotate(0deg) translateY(8px);
+    z-index: 2;
+  }
+  .card-fan > *:nth-child(3) {
+    transform: rotate(1.2deg) translateY(16px) translateX(4px);
+    z-index: 3;
+  }
+  .card-fan > *:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.02);
     z-index: 10;
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    pointer-events: auto;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
   }
-  .carousel-slide.prev {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.92) translateY(12px);
-    z-index: 5;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-  .carousel-slide .case-card,
-  .carousel-slide .testimonial-card {
+  .case-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
     margin-bottom: 0;
-  }
-
-  /* Carousel controls */
-  .carousel-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 24px;
-  }
-  .carousel-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: none;
-    background: #f1f3f4;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.15s;
-    flex-shrink: 0;
-  }
-  .carousel-btn:hover {
-    background: #e8eaed;
-    transform: scale(1.08);
-  }
-  .carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: default;
-    transform: none;
-  }
-  .carousel-btn .material-symbols-outlined {
-    font-size: 20px;
-    color: #3c4043;
-  }
-  .carousel-dots {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #dadce0;
-    cursor: pointer;
-    transition: background 0.25s, transform 0.2s;
-    flex-shrink: 0;
-  }
-  .dot.active {
-    background: #1a73e8;
-    width: 28px;
-    border-radius: 4px;
-    transform: none;
-  }
-  .dot:hover:not(.active) {
-    background: #a8c7fa;
-  }
-  .carousel-index {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: #80868b;
-    white-space: nowrap;
-  }
-
-  /* Tweak case-card inside carousel */
-  .carousel-slide .case-card {
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04),
                 0 8px 24px rgba(0,0,0,0.04);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  }
+
+  @media (max-width: 600px) {
+    .card-fan > *:nth-child(1) { transform: rotate(-0.8deg) translateY(0); }
+    .card-fan > *:nth-child(2) { transform: rotate(0deg) translateY(6px); }
+    .card-fan > *:nth-child(3) { transform: rotate(0.8deg) translateY(12px); }
+    .card-fan > *:hover { transform: rotate(0deg) translateY(-4px) scale(1.01); }
   }
 
   /* ── Project Card ── */
@@ -728,121 +663,99 @@
     <h2>Case Studies</h2>
   </div>
 
-  <div class="carousel" id="caseCarousel">
-    <div class="carousel-stack">
-      <!-- Voice AI Receptionist -->
-      <div class="carousel-slide active">
-        <div class="case-card" data-href="#">
-          <div class="case-header">
-            <div class="case-icon icon-voiceai">
-              <span class="material-symbols-outlined">call</span>
-            </div>
-            <div class="case-info">
-              <h3>Voice AI Receptionist</h3>
-              <div class="case-tag">
-                <span class="material-symbols-outlined">stack</span> Vapi &middot; Google Calendar &middot; Airtable
-              </div>
-            </div>
+  <div class="card-fan">
+    <div class="case-card" data-href="#">
+      <div class="case-header">
+        <div class="case-icon icon-voiceai">
+          <span class="material-symbols-outlined">call</span>
+        </div>
+        <div class="case-info">
+          <h3>Voice AI Receptionist</h3>
+          <div class="case-tag">
+            <span class="material-symbols-outlined">stack</span> Vapi &middot; Google Calendar &middot; Airtable
           </div>
-
-          <div class="case-section">
-            <div class="case-section-label">Who is this for</div>
-            <p class="case-text">Small businesses, agencies, and solo professionals who want to automate appointment scheduling and caller follow-up through a voice-based AI receptionist. If you're using tools like Google Calendar, Airtable, and Vapi, this setup is for you.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">The problem it solves</div>
-            <p class="case-text">Manual call handling, appointment booking, and email coordination is time-consuming and error-prone. This workflow automates the entire receptionist role: answering calls, checking calendar availability, managing appointments, and storing call summaries — all without human intervention.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">How it works</div>
-            <p class="case-text">This Agent Receptionist manages inbound voice calls and scheduling using Vapi and Google Calendar. It checks availability, books or updates calendar events, sends email confirmations, and logs call details into Airtable. The workflow includes built-in logic for slot management, email triggers, and storing call transcripts.</p>
-          </div>
-
-          <img src="images/voiceai-workflow.jpg" alt="Voice AI Receptionist workflow diagram" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
         </div>
       </div>
 
-      <!-- Data Science Jobs Scraper -->
-      <div class="carousel-slide">
-        <div class="case-card" data-href="https://github.com/eskayML/data-science-jobs">
-          <div class="case-header">
-            <div class="case-icon icon-scraper">
-              <span class="material-symbols-outlined">search</span>
-            </div>
-            <div class="case-info">
-              <h3>Real-Time Job Scraper</h3>
-              <div class="case-tag">
-                <span class="material-symbols-outlined">stack</span> Camoufox &middot; Playwright &middot; Anti-Bot Evasion
-              </div>
-            </div>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">Who is this for</div>
-            <p class="case-text">Recruiters, job boards, market intelligence teams, and businesses that need to monitor competitor hiring or aggregate job listings at scale — without getting blocked.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">The problem it solves</div>
-            <p class="case-text">Job boards and ATS platforms aggressively block automated scraping. Traditional scrapers get IP-banned within minutes. This system uses the Camoufox browser — an anti-fingerprint browser — combined with Playwright for stealth browsing, rotating Google dork queries across 7 major ATS platforms (Greenhouse, Lever, Workable, BambooHR, Ashby, SmartRecruiters, Jobvite), and intelligent consent handling to bypass anti-bot detection and extract 1,000+ fresh job postings per week.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">How it works</div>
-            <p class="case-text">The scraper runs headless Camoufox, which spoofs browser fingerprints to evade detection. It cycles through Google dork queries targeting specific ATS platforms, paginates up to 3 pages per source, handles cookie consent popups, and extracts job titles, company names, locations, and descriptions. Duplicate detection prevents re-scraping. Results are saved as structured JSON and served via a live Vercel-hosted job board.</p>
-          </div>
-
-          <img src="images/data-science-jobs-repo.jpg" alt="Data Science Jobs scraper screenshot" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
-          <a class="project-link" href="https://github.com/eskayML/data-science-jobs" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-symbols-outlined">arrow_forward</span></a>
-        </div>
+      <div class="case-section">
+        <div class="case-section-label">Who is this for</div>
+        <p class="case-text">Small businesses, agencies, and solo professionals who want to automate appointment scheduling and caller follow-up through a voice-based AI receptionist. If you're using tools like Google Calendar, Airtable, and Vapi, this setup is for you.</p>
       </div>
 
-      <!-- Google Review Automation -->
-      <div class="carousel-slide">
-        <div class="case-card" data-href="#">
-          <div class="case-header">
-            <div class="case-icon icon-google-review">
-              <span class="material-symbols-outlined">reviews</span>
-            </div>
-            <div class="case-info">
-              <h3>Google Review Automation</h3>
-              <div class="case-tag">
-                <span class="material-symbols-outlined">stack</span> n8n (No-Code) &middot; Google Business Profile &middot; OpenAI
-              </div>
-            </div>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">Who is this for</div>
-            <p class="case-text">Local businesses, service providers, and agencies who need to actively manage their Google reviews — respond fast, track sentiment, and keep their online reputation healthy without checking Google manually every day.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">The problem it solves</div>
-            <p class="case-text">Google reviews directly impact local SEO and customer trust, but most businesses either ignore them or respond late. A single negative review left unanswered can cost dozens of leads. Manually monitoring reviews, drafting responses, and notifying the right team members is tedious and easy to drop. This n8n workflow automates the entire pipeline.</p>
-          </div>
-
-          <div class="case-section">
-            <div class="case-section-label">How it works</div>
-            <p class="case-text">Triggered by a new Google Business Profile review, the workflow formats the review data and sends it to OpenAI for an intelligent, brand-aligned response. It then classifies the review as positive or negative. Negative reviews trigger an urgent Slack alert to the team so they can act fast. Positive reviews notify the team for engagement. Every review, AI response, and rating is logged to Google Sheets with timestamps, review IDs, and full context for easy tracking.</p>
-          </div>
-
-          <img src="images/google-review-workflow.jpg" alt="Google Review Automation n8n workflow" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
-        </div>
+      <div class="case-section">
+        <div class="case-section-label">The problem it solves</div>
+        <p class="case-text">Manual call handling, appointment booking, and email coordination is time-consuming and error-prone. This workflow automates the entire receptionist role: answering calls, checking calendar availability, managing appointments, and storing call summaries — all without human intervention.</p>
       </div>
+
+      <div class="case-section">
+        <div class="case-section-label">How it works</div>
+        <p class="case-text">This Agent Receptionist manages inbound voice calls and scheduling using Vapi and Google Calendar. It checks availability, books or updates calendar events, sends email confirmations, and logs call details into Airtable. The workflow includes built-in logic for slot management, email triggers, and storing call transcripts.</p>
+      </div>
+
+      <img src="images/voiceai-workflow.jpg" alt="Voice AI Receptionist workflow diagram" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
     </div>
 
-    <div class="carousel-controls" id="caseControls">
-      <button class="carousel-btn" id="casePrev" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
-      <div class="carousel-dots" id="caseDots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <div class="case-card" data-href="https://github.com/eskayML/data-science-jobs">
+      <div class="case-header">
+        <div class="case-icon icon-scraper">
+          <span class="material-symbols-outlined">search</span>
+        </div>
+        <div class="case-info">
+          <h3>Real-Time Job Scraper</h3>
+          <div class="case-tag">
+            <span class="material-symbols-outlined">stack</span> Camoufox &middot; Playwright &middot; Anti-Bot Evasion
+          </div>
+        </div>
       </div>
-      <span class="carousel-index" id="caseIndex">1 / 3</span>
-      <button class="carousel-btn" id="caseNext" aria-label="Next"><span class="material-symbols-outlined">chevron_right</span></button>
+
+      <div class="case-section">
+        <div class="case-section-label">Who is this for</div>
+        <p class="case-text">Recruiters, job boards, market intelligence teams, and businesses that need to monitor competitor hiring or aggregate job listings at scale — without getting blocked.</p>
+      </div>
+
+      <div class="case-section">
+        <div class="case-section-label">The problem it solves</div>
+        <p class="case-text">Job boards and ATS platforms aggressively block automated scraping. Traditional scrapers get IP-banned within minutes. This system uses the Camoufox browser — an anti-fingerprint browser — combined with Playwright for stealth browsing, rotating Google dork queries across 7 major ATS platforms (Greenhouse, Lever, Workable, BambooHR, Ashby, SmartRecruiters, Jobvite), and intelligent consent handling to bypass anti-bot detection and extract 1,000+ fresh job postings per week.</p>
+      </div>
+
+      <div class="case-section">
+        <div class="case-section-label">How it works</div>
+        <p class="case-text">The scraper runs headless Camoufox, which spoofs browser fingerprints to evade detection. It cycles through Google dork queries targeting specific ATS platforms, paginates up to 3 pages per source, handles cookie consent popups, and extracts job titles, company names, locations, and descriptions. Duplicate detection prevents re-scraping. Results are saved as structured JSON and served via a live Vercel-hosted job board.</p>
+      </div>
+
+      <img src="images/data-science-jobs-repo.jpg" alt="Data Science Jobs scraper screenshot" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+      <a class="project-link" href="https://github.com/eskayML/data-science-jobs" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+
+    <div class="case-card" data-href="#">
+      <div class="case-header">
+        <div class="case-icon icon-google-review">
+          <span class="material-symbols-outlined">reviews</span>
+        </div>
+        <div class="case-info">
+          <h3>Google Review Automation</h3>
+          <div class="case-tag">
+            <span class="material-symbols-outlined">stack</span> n8n (No-Code) &middot; Google Business Profile &middot; OpenAI
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section">
+        <div class="case-section-label">Who is this for</div>
+        <p class="case-text">Local businesses, service providers, and agencies who need to actively manage their Google reviews — respond fast, track sentiment, and keep their online reputation healthy without checking Google manually every day.</p>
+      </div>
+
+      <div class="case-section">
+        <div class="case-section-label">The problem it solves</div>
+        <p class="case-text">Google reviews directly impact local SEO and customer trust, but most businesses either ignore them or respond late. A single negative review left unanswered can cost dozens of leads. Manually monitoring reviews, drafting responses, and notifying the right team members is tedious and easy to drop. This n8n workflow automates the entire pipeline.</p>
+      </div>
+
+      <div class="case-section">
+        <div class="case-section-label">How it works</div>
+        <p class="case-text">Triggered by a new Google Business Profile review, the workflow formats the review data and sends it to OpenAI for an intelligent, brand-aligned response. It then classifies the review as positive or negative. Negative reviews trigger an urgent Slack alert to the team so they can act fast. Positive reviews notify the team for engagement. Every review, AI response, and rating is logged to Google Sheets with timestamps, review IDs, and full context for easy tracking.</p>
+      </div>
+
+      <img src="images/google-review-workflow.jpg" alt="Google Review Automation n8n workflow" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
     </div>
   </div>
 
@@ -852,26 +765,14 @@
     <h2>Testimonials</h2>
   </div>
 
-  <div class="carousel" id="testimonialCarousel">
-    <div class="carousel-stack">
-      <div class="carousel-slide active">
-        <div class="testimonial-card">
-          <div class="testimonial-video-wrapper">
-            <video controls class="testimonial-video">
-              <source src="images/testimonial-1.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <p class="testimonial-by">Arman Liaghat &mdash; CEO &amp; Founder, thehired.ai</p>
-        </div>
-      </div>
+  <div class="testimonial-card">
+    <div class="testimonial-video-wrapper">
+      <video controls class="testimonial-video">
+        <source src="images/testimonial-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-
-    <div class="carousel-controls" id="testimonialControls">
-      <div class="carousel-dots" id="testimonialDots">
-        <span class="dot active"></span>
-      </div>
-    </div>
+    <p class="testimonial-by">Arman Liaghat &mdash; CEO &amp; Founder, thehired.ai</p>
   </div>
 
   <!-- ── Projects ── -->
@@ -1109,75 +1010,6 @@
       const href = this.getAttribute('data-href');
       if (href) window.open(href, '_blank');
     });
-  });
-
-  // Card-Stack Carousel
-  function Carousel(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const stack = el.querySelector('.carousel-stack');
-    const slides = stack.querySelectorAll('.carousel-slide');
-    const total = slides.length;
-    if (total === 0) return;
-    let current = 0;
-
-    const prevBtn = document.getElementById(id.replace('Carousel', 'Prev'));
-    const nextBtn = document.getElementById(id.replace('Carousel', 'Next'));
-    const dotsEl = document.getElementById(id.replace('Carousel', 'Dots'));
-    const indexEl = document.getElementById(id.replace('Carousel', 'Index'));
-    const dots = dotsEl ? dotsEl.querySelectorAll('.dot') : [];
-
-    function update() {
-      slides.forEach((slide, i) => {
-        slide.className = 'carousel-slide';
-        if (i === current) slide.classList.add('active');
-      });
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      if (indexEl) indexEl.textContent = (current + 1) + ' / ' + total;
-      if (prevBtn) prevBtn.disabled = current === 0;
-      if (nextBtn) nextBtn.disabled = current === total - 1;
-    }
-
-    function go(index) {
-      if (index < 0 || index >= total || index === current) return;
-      current = index;
-      update();
-    }
-
-    function next() { go(current + 1); }
-    function prev() { go(current - 1); }
-
-    // Button events
-    if (prevBtn) prevBtn.addEventListener('click', prev);
-    if (nextBtn) nextBtn.addEventListener('click', next);
-
-    // Dot events
-    dots.forEach((d, i) => d.addEventListener('click', function() { go(i); }));
-
-    // Keyboard
-    el.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    });
-    el.setAttribute('tabindex', '0');
-
-    // Touch swipe
-    let sx = 0;
-    el.addEventListener('touchstart', function(e) { sx = e.touches[0].clientX; }, {passive: true});
-    el.addEventListener('touchend', function(e) {
-      const ex = e.changedTouches[0].clientX;
-      const diff = sx - ex;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) next(); else prev();
-      }
-    }, {passive: true});
-
-    update();
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    Carousel('caseCarousel');
-    Carousel('testimonialCarousel');
   });
 </script>
 </body>
