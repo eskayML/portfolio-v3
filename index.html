@@ -255,23 +255,23 @@
     z-index: 10;
   }
   .deck .case-card[data-pos="1"] {
-    transform: translateX(12px) translateY(8px) rotateZ(3deg) scale(0.94);
-    opacity: 0.85;
+    transform: translateX(24px) translateY(12px) rotateZ(6deg) scale(0.92);
+    opacity: 0.8;
     z-index: 9;
   }
   .deck .case-card[data-pos="2"] {
-    transform: translateX(22px) translateY(14px) rotateZ(5.5deg) scale(0.88);
-    opacity: 0.6;
+    transform: translateX(48px) translateY(24px) rotateZ(12deg) scale(0.84);
+    opacity: 0.55;
     z-index: 8;
   }
   .deck .case-card[data-pos="-1"] {
-    transform: translateX(-40px) translateY(4px) rotateZ(-4deg) scale(0.92);
+    transform: translateX(-60px) translateY(6px) rotateZ(-6deg) scale(0.90);
     opacity: 0;
     z-index: 1;
     pointer-events: none;
   }
   .deck .case-card[data-pos="-2"] {
-    transform: translateX(-80px) translateY(2px) rotateZ(-6deg) scale(0.85);
+    transform: translateX(-100px) translateY(2px) rotateZ(-10deg) scale(0.82);
     opacity: 0;
     z-index: 1;
     pointer-events: none;
@@ -341,13 +341,13 @@
   }
   @media (max-width: 600px) {
     .deck .case-card[data-pos="1"] {
-      transform: translateX(8px) translateY(6px) rotateZ(2deg) scale(0.94);
+      transform: translateX(16px) translateY(8px) rotateZ(4deg) scale(0.94);
     }
     .deck .case-card[data-pos="2"] {
-      transform: translateX(14px) translateY(10px) rotateZ(4deg) scale(0.88);
+      transform: translateX(30px) translateY(16px) rotateZ(8deg) scale(0.88);
     }
     .deck .case-card[data-pos="-1"] {
-      transform: translateX(-24px) translateY(3px) rotateZ(-3deg) scale(0.92);
+      transform: translateX(-36px) translateY(4px) rotateZ(-4deg) scale(0.92);
     }
   }
 
@@ -1113,20 +1113,17 @@
 
     function position() {
       cards.forEach((card, i) => {
-        let pos = i - current;
-        if (pos > Math.floor(total / 2)) pos -= total;
-        if (pos < -Math.floor(total / 2)) pos += total;
-        card.dataset.pos = pos;
+        let diff = i - current;
+        if (diff > Math.floor(total / 2)) diff -= total;
+        if (diff < -Math.floor(total / 2)) diff += total;
+        card.dataset.pos = diff;
       });
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
       if (indexEl) indexEl.textContent = (current + 1) + ' / ' + total;
-      if (prevBtn) prevBtn.disabled = current === 0;
-      if (nextBtn) nextBtn.disabled = current === total - 1;
     }
 
     function go(index) {
-      if (index < 0 || index >= total || index === current) return;
-      current = index;
+      current = ((index % total) + total) % total;
       position();
     }
 
