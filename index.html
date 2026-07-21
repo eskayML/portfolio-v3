@@ -122,7 +122,7 @@
   .case-card {
     background: white;
     border-radius: 16px;
-    padding: 28px 32px;
+    padding: 20px 24px;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
     transition: box-shadow 0.2s;
@@ -190,6 +190,91 @@
   .icon-voiceai { background: #e8f0fe; color: #1a73e8; }
   .icon-scraper { background: #fce8e6; color: #d93025; }
   .icon-google-review { background: #e6f4ea; color: #1e8e3e; }
+
+  /* ── Case Study Preview ── */
+  .case-preview {
+    font-size: 15px;
+    color: #3c4043;
+    line-height: 1.5;
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .case-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a73e8;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .case-readmore:hover { color: #1557b0; }
+  .case-readmore .material-symbols-outlined {
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  .case-readmore:hover .material-symbols-outlined {
+    transform: translateX(3px);
+  }
+
+  /* ── Modal ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 680px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 32px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+    animation: modalIn 0.25s ease;
+    position: relative;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #f1f3f4;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: #e8eaed; }
+  .modal-close .material-symbols-outlined { font-size: 18px; color: #3c4043; }
+
+  @media (max-width: 600px) {
+    .modal-overlay { padding: 12px; }
+    .modal-content { padding: 24px 20px; max-height: 90vh; border-radius: 16px; }
+  }
 
   /* ── Testimonial Card ── */
   .testimonial-card {
@@ -661,6 +746,7 @@
     .hero-links { gap: 8px; }
     .hero-links a { padding: 4px 10px; font-size: 12px; }
     .about-card { padding: 20px; }
+    .case-card { padding: 16px 18px; }
     .testimonial-card { padding: 20px; }
     .project-card { padding: 20px; }
     .project-header { gap: 12px; }
@@ -748,7 +834,7 @@
     <button class="deck-btn" id="deckPrev" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
 
     <div class="deck" id="caseDeck">
-      <div class="case-card" data-href="#" data-index="0">
+      <div class="case-card" data-index="0">
         <div class="case-header">
           <div class="case-icon icon-voiceai">
             <span class="material-symbols-outlined">call</span>
@@ -760,22 +846,11 @@
             </div>
           </div>
         </div>
-        <div class="case-section">
-          <div class="case-section-label">Who is this for</div>
-          <p class="case-text">Small businesses, agencies, and solo professionals who want to automate appointment scheduling and caller follow-up through a voice-based AI receptionist. If you're using tools like Google Calendar, Airtable, and Vapi, this setup is for you.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">The problem it solves</div>
-          <p class="case-text">Manual call handling, appointment booking, and email coordination is time-consuming and error-prone. This workflow automates the entire receptionist role: answering calls, checking calendar availability, managing appointments, and storing call summaries, all without human intervention.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">How it works</div>
-          <p class="case-text">This Agent Receptionist manages inbound voice calls and scheduling using Vapi and Google Calendar. It checks availability, books or updates calendar events, sends email confirmations, and logs call details into Airtable. The workflow includes built-in logic for slot management, email triggers, and storing call transcripts.</p>
-        </div>
-        <img src="images/voiceai-workflow.jpg" alt="Voice AI Receptionist workflow diagram" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+        <div class="case-preview">Automate call scheduling with a voice AI receptionist. Answers calls, checks calendar availability, books appointments, sends confirmations, and logs everything to Airtable.</div>
+        <span class="case-readmore" onclick="openModal(0)">Read full case study <span class="material-symbols-outlined">arrow_forward</span></span>
       </div>
 
-      <div class="case-card" data-href="https://github.com/eskayML/data-science-jobs" data-index="1">
+      <div class="case-card" data-index="1">
         <div class="case-header">
           <div class="case-icon icon-scraper">
             <span class="material-symbols-outlined">search</span>
@@ -787,23 +862,11 @@
             </div>
           </div>
         </div>
-        <div class="case-section">
-          <div class="case-section-label">Who is this for</div>
-          <p class="case-text">Recruiters, job boards, market intelligence teams, and businesses that need to monitor competitor hiring or aggregate job listings at scale, without getting blocked.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">The problem it solves</div>
-          <p class="case-text">Job boards and ATS platforms aggressively block automated scraping. Traditional scrapers get IP-banned within minutes. This system uses the Camoufox browser, an anti-fingerprint browser, combined with Playwright for stealth browsing, rotating Google dork queries across 7 major ATS platforms (Greenhouse, Lever, Workable, BambooHR, Ashby, SmartRecruiters, Jobvite), and intelligent consent handling to bypass anti-bot detection and extract 1,000+ fresh job postings per week.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">How it works</div>
-          <p class="case-text">The scraper runs headless Camoufox, which spoofs browser fingerprints to evade detection. It cycles through Google dork queries targeting specific ATS platforms, paginates up to 3 pages per source, handles cookie consent popups, and extracts job titles, company names, locations, and descriptions. Duplicate detection prevents re-scraping. Results are saved as structured JSON and served via a live Vercel-hosted job board.</p>
-        </div>
-        <img src="images/data-science-jobs-repo.jpg" alt="Data Science Jobs scraper screenshot" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
-        <a class="project-link" href="https://github.com/eskayML/data-science-jobs" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-symbols-outlined">arrow_forward</span></a>
+        <div class="case-preview">Bypass anti-bot detection to scrape 1,000+ job listings weekly from 7 ATS platforms. Uses Camoufox stealth browser with automatic duplicate detection.</div>
+        <span class="case-readmore" onclick="openModal(1)">Read full case study <span class="material-symbols-outlined">arrow_forward</span></span>
       </div>
 
-      <div class="case-card" data-href="#" data-index="2">
+      <div class="case-card" data-index="2">
         <div class="case-header">
           <div class="case-icon icon-google-review">
             <span class="material-symbols-outlined">reviews</span>
@@ -815,19 +878,8 @@
             </div>
           </div>
         </div>
-        <div class="case-section">
-          <div class="case-section-label">Who is this for</div>
-          <p class="case-text">Local businesses, service providers, and agencies who need to actively manage their Google reviews, respond fast, track sentiment, and keep their online reputation healthy without checking Google manually every day.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">The problem it solves</div>
-          <p class="case-text">Google reviews directly impact local SEO and customer trust, but most businesses either ignore them or respond late. A single negative review left unanswered can cost dozens of leads. Manually monitoring reviews, drafting responses, and notifying the right team members is tedious and easy to drop. This n8n workflow automates the entire pipeline.</p>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label">How it works</div>
-          <p class="case-text">Triggered by a new Google Business Profile review, the workflow formats the review data and sends it to OpenAI for an intelligent, brand-aligned response. It then classifies the review as positive or negative. Negative reviews trigger an urgent Slack alert to the team so they can act fast. Positive reviews notify the team for engagement. Every review, AI response, and rating is logged to Google Sheets with timestamps, review IDs, and full context for easy tracking.</p>
-        </div>
-        <img src="images/google-review-workflow.jpg" alt="Google Review Automation n8n workflow" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+        <div class="case-preview">Automated Google review management: AI-generated responses, sentiment classification, Slack alerts for negative reviews, and full logging to Google Sheets.</div>
+        <span class="case-readmore" onclick="openModal(2)">Read full case study <span class="material-symbols-outlined">arrow_forward</span></span>
       </div>
     </div>
 
@@ -1086,6 +1138,13 @@
     kalusam619@gmail.com &middot; Remote (GMT+1)
   </div>
 </div>
+<div class="modal-overlay" id="caseModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()"><span class="material-symbols-outlined">close</span></button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
 <script>
   // Project card click handler
   document.querySelectorAll('.project-card').forEach(card => {
@@ -1094,6 +1153,87 @@
       const href = this.getAttribute('data-href');
       if (href) window.open(href, '_blank');
     });
+  });
+
+  // Case study data for modal
+  const caseStudies = [
+    {
+      icon: 'call',
+      iconClass: 'icon-voiceai',
+      title: 'Voice AI Receptionist',
+      tag: 'Vapi &middot; Google Calendar &middot; Airtable',
+      sections: [
+        { label: 'Who is this for', text: 'Small businesses, agencies, and solo professionals who want to automate appointment scheduling and caller follow-up through a voice-based AI receptionist. If you\'re using tools like Google Calendar, Airtable, and Vapi, this setup is for you.' },
+        { label: 'The problem it solves', text: 'Manual call handling, appointment booking, and email coordination is time-consuming and error-prone. This workflow automates the entire receptionist role: answering calls, checking calendar availability, managing appointments, and storing call summaries, all without human intervention.' },
+        { label: 'How it works', text: 'This Agent Receptionist manages inbound voice calls and scheduling using Vapi and Google Calendar. It checks availability, books or updates calendar events, sends email confirmations, and logs call details into Airtable. The workflow includes built-in logic for slot management, email triggers, and storing call transcripts.' }
+      ],
+      image: 'images/voiceai-workflow.jpg'
+    },
+    {
+      icon: 'search',
+      iconClass: 'icon-scraper',
+      title: 'Real-Time Job Scraper',
+      tag: 'Camoufox &middot; Playwright &middot; Anti-Bot Evasion',
+      sections: [
+        { label: 'Who is this for', text: 'Recruiters, job boards, market intelligence teams, and businesses that need to monitor competitor hiring or aggregate job listings at scale, without getting blocked.' },
+        { label: 'The problem it solves', text: 'Job boards and ATS platforms aggressively block automated scraping. Traditional scrapers get IP-banned within minutes. This system uses the Camoufox browser, an anti-fingerprint browser, combined with Playwright for stealth browsing, rotating Google dork queries across 7 major ATS platforms (Greenhouse, Lever, Workable, BambooHR, Ashby, SmartRecruiters, Jobvite), and intelligent consent handling to bypass anti-bot detection and extract 1,000+ fresh job postings per week.' },
+        { label: 'How it works', text: 'The scraper runs headless Camoufox, which spoofs browser fingerprints to evade detection. It cycles through Google dork queries targeting specific ATS platforms, paginates up to 3 pages per source, handles cookie consent popups, and extracts job titles, company names, locations, and descriptions. Duplicate detection prevents re-scraping. Results are saved as structured JSON and served via a live Vercel-hosted job board.' }
+      ],
+      image: 'images/data-science-jobs-repo.jpg',
+      link: { url: 'https://github.com/eskayML/data-science-jobs', text: 'View on GitHub' }
+    },
+    {
+      icon: 'reviews',
+      iconClass: 'icon-google-review',
+      title: 'Google Review Automation',
+      tag: 'n8n (No-Code) &middot; Google Business Profile &middot; OpenAI',
+      sections: [
+        { label: 'Who is this for', text: 'Local businesses, service providers, and agencies who need to actively manage their Google reviews, respond fast, track sentiment, and keep their online reputation healthy without checking Google manually every day.' },
+        { label: 'The problem it solves', text: 'Google reviews directly impact local SEO and customer trust, but most businesses either ignore them or respond late. A single negative review left unanswered can cost dozens of leads. Manually monitoring reviews, drafting responses, and notifying the right team members is tedious and easy to drop. This n8n workflow automates the entire pipeline.' },
+        { label: 'How it works', text: 'Triggered by a new Google Business Profile review, the workflow formats the review data and sends it to OpenAI for an intelligent, brand-aligned response. It then classifies the review as positive or negative. Negative reviews trigger an urgent Slack alert to the team so they can act fast. Positive reviews notify the team for engagement. Every review, AI response, and rating is logged to Google Sheets with timestamps, review IDs, and full context for easy tracking.' }
+      ],
+      image: 'images/google-review-workflow.jpg'
+    }
+  ];
+
+  function openModal(index) {
+    const cs = caseStudies[index];
+    if (!cs) return;
+    const body = document.getElementById('modalBody');
+    body.innerHTML = `
+      <div class="case-header" style="margin-bottom:20px">
+        <div class="case-icon ${cs.iconClass}">
+          <span class="material-symbols-outlined">${cs.icon}</span>
+        </div>
+        <div class="case-info">
+          <h3 style="font-family:'EB Garamond',serif;font-size:22px;font-weight:700;color:#1f1f1f">${cs.title}</h3>
+          <div class="case-tag" style="margin-top:4px">
+            <span class="material-symbols-outlined">stack</span> ${cs.tag}
+          </div>
+        </div>
+      </div>
+      ${cs.sections.map(s => `
+        <div class="case-section">
+          <div class="case-section-label">${s.label}</div>
+          <p class="case-text">${s.text}</p>
+        </div>
+      `).join('')}
+      <img src="${cs.image}" alt="${cs.title}" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+      ${cs.link ? `<a class="project-link" href="${cs.link.url}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#1a73e8;text-decoration:none">${cs.link.text} <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></a>` : ''}
+    `;
+    document.getElementById('caseModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('caseModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
   });
 
   // Card Deck Carousel
