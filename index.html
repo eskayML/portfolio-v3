@@ -191,6 +191,8 @@
     line-height: 1.65;
   }
   .icon-voiceai { background: #e8f0fe; color: #1a73e8; }
+  .icon-scraper { background: #fce8e6; color: #d93025; }
+  .icon-google-review { background: #e6f4ea; color: #1e8e3e; }
 
   /* ── Testimonial Card ── */
   .testimonial-card {
@@ -651,6 +653,85 @@
     </div>
 
     <img src="images/voiceai-workflow.jpg" alt="Voice AI Receptionist workflow diagram" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+  </div>
+
+  <!-- Data Science Jobs Scraper -->
+  <div class="case-card" data-href="https://github.com/eskayML/data-science-jobs">
+    <div class="case-header">
+      <div class="case-icon icon-scraper">
+        <span class="material-symbols-outlined">search</span>
+      </div>
+      <div class="case-info">
+        <h3>Real-Time Job Scraper</h3>
+        <div class="case-tag">
+          <span class="material-symbols-outlined">stack</span> Camoufox &middot; Playwright &middot; Anti-Bot Evasion
+        </div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">Who is this for</div>
+      <p class="case-text">
+        Recruiters, job boards, market intelligence teams, and businesses that need to monitor competitor hiring or aggregate job listings at scale — without getting blocked.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">The problem it solves</div>
+      <p class="case-text">
+        Job boards and ATS platforms aggressively block automated scraping. Traditional scrapers get IP-banned within minutes. This system uses the Camoufox browser — an anti-fingerprint browser — combined with Playwright for stealth browsing, rotating Google dork queries across 7 major ATS platforms (Greenhouse, Lever, Workable, BambooHR, Ashby, SmartRecruiters, Jobvite), and intelligent consent handling to bypass anti-bot detection and extract 1,000+ fresh job postings per week.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">How it works</div>
+      <p class="case-text">
+        The scraper runs headless Camoufox, which spoofs browser fingerprints to evade detection. It cycles through Google dork queries targeting specific ATS platforms, paginates up to 3 pages per source, handles cookie consent popups, and extracts job titles, company names, locations, and descriptions. Duplicate detection prevents re-scraping. Results are saved as structured JSON and served via a live Vercel-hosted job board.
+      </p>
+    </div>
+
+    <img src="images/data-science-jobs-repo.jpg" alt="Data Science Jobs scraper screenshot" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
+    <a class="project-link" href="https://github.com/eskayML/data-science-jobs" target="_blank" rel="noopener noreferrer">
+      View on GitHub <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+
+  <!-- Google Review Automation -->
+  <div class="case-card" data-href="#">
+    <div class="case-header">
+      <div class="case-icon icon-google-review">
+        <span class="material-symbols-outlined">reviews</span>
+      </div>
+      <div class="case-info">
+        <h3>Google Review Automation</h3>
+        <div class="case-tag">
+          <span class="material-symbols-outlined">stack</span> n8n (No-Code) &middot; Google Business Profile
+        </div>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">Who is this for</div>
+      <p class="case-text">
+        Local businesses, service providers, and agencies that need a steady stream of Google reviews to improve their local SEO ranking and social proof — without manually chasing every customer.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">The problem it solves</div>
+      <p class="case-text">
+        Most customers never leave reviews unless asked multiple times. Manually sending review requests is tedious and inconsistent. This n8n workflow automates the entire process: after a service is completed, the customer automatically receives a personalized review request via SMS or email with a direct link to leave a Google review. Follow-ups are sent if no action is taken.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-label">How it works</div>
+      <p class="case-text">
+        Triggered by a webhook or database update (e.g., order marked "completed"), the workflow pulls customer contact info, generates a unique Google review link, and sends a personalized SMS or email. If the customer hasn't left a review within 3 days, an automatic reminder is sent. A dashboard tracks who left reviews and who didn't, so the business can follow up manually with high-value clients if needed. Entirely no-code — built in n8n.
+      </p>
+    </div>
+
+    <img src="images/google-review-workflow.jpg" alt="Google Review Automation workflow" style="width:100%;border-radius:8px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)">
   </div>
 
   <!-- ── Testimonials ── -->
